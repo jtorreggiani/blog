@@ -11,6 +11,55 @@ description: A short overview of how this blog was built with NextJS and Github 
 I built this blog using NextJS by following the [official guide for using MDX](https://nextjs.org/docs/app/building-your-application/configuring/mdx).
 The main issue I ran into was not looking at the right App Router documentation. I first looked for tutorials and so references to the Page router approach.
 
-## How Static Websites Work
+## Folder Structure
 
-To be continued...
+```
+.
+├── app
+│   ├── components
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── posts
+│       ├── hello-world
+│       │   └── page.mdx
+│       ├── how-i-built-this-blog
+│       │   └── page.mdx
+│       └── layout.tsx
+├── node_modules
+├── out
+├── public
+├── README.md
+├── mdx-components.tsx
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
+
+## How the index page works
+
+In the `app/page.mdx` file.
+
+<br/>
+
+```JavaScript
+export default function Home() {
+  const postsDirectory = `${process.cwd()}/app/posts`;
+  const filenames = fs.readdirSync(postsDirectory).filter((filename => filename !== 'layout.tsx'));
+  const pages = filenames.map((filename) => {
+    const path = `${postsDirectory}/${filename}/page.mdx`;
+    let file = fs.readFileSync(path, 'utf8');
+    const { data } = matter(file);
+    return data;
+  });
+
+  return (...)
+}
+```
+
