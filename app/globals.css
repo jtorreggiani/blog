@@ -2,59 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
-h1 {
-  font-size: 40px;
-}
-
-a {
-  color: blue;
-  text-decoration: underline;
-}
-
 body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-h2 {
-  font-size: 30px;
+/* NOTE: This is a hack to resolve an issue with frontmatter getting rendered */
+.post > h2:first-of-type {
+  display: none;
 }
 
-p {
-  font-size: 20px;
+.post > h1 {
+  font-size: 40px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
 .post > h2 {
-  display: none;
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .post {
   max-width: 800px;
+  margin-top: 60px;
 }
