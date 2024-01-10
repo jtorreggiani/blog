@@ -28,4 +28,5 @@ body {
 .post {
   max-width: 800px;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
