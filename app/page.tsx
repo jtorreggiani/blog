@@ -14,11 +14,11 @@ export default async function Home() {
 
   return (
     <main className="mx-auto w-1/2">
-      <h1>Joe's Blog</h1>
+      <h1>Joe&apos;s Blog</h1>
       <h3 className="text-2xl">Recent posts</h3>
       <ul>
         {pages.map((page) => (
-          <li>
+          <li key={page.slug}>
             <a href={`/posts/${page.slug}`}>
               {page.title}
             </a>
